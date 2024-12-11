@@ -1,11 +1,11 @@
 package practicaFinal;
 
-
 public abstract class Arma {
-	
+
+	private String perro;
 	protected String nombre;
-    protected int danioBase;
-    protected String calidad;
+    	protected int danioBase;
+    	protected String calidad;
 
     // Constructor
     public Arma(String nombre, int danioBase, String calidad) {
