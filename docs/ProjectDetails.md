@@ -92,3 +92,5 @@ El tablero inicial es de 8x8 y se reduce gradualmente:
 | `Combat`               | Gestión de los enfrentamientos.          |
 
 ---
+
+Hola mundo
