@@ -2,8 +2,8 @@ package practicaFinal;
 
 public abstract class Arma {
 
-	private String Javier2;
-	protected String Javier2;
+	private String SantiagoPrueba;
+	protected String Javier22;
     	protected int danioBase;
     	protected String calidad;
 
