@@ -4,6 +4,7 @@ public abstract class Arma {
 
 	
 	protected String Nombre;
+    protected String Nombre2;
     	protected int danioBase;
     	protected String calidad;
 
