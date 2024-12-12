@@ -3,7 +3,7 @@ package practicaFinal;
 public abstract class Arma {
 
 	
-	protected String nombre;
+	protected String Nombre;
     	protected int danioBase;
     	protected String calidad;
 
