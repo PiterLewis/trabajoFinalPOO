@@ -118,7 +118,7 @@ El tablero inicial es de 8x8 y se reduce gradualmente:
 - **`getDaño()`**: Devuelve el daño del arma.
 - **`usar()`**: Realiza una acción de ataque con el arma.
 
-### **Clase `Game`**
+### **Clase `Game(Main)`**
 - **`iniciarJuego()`**: Configura y comienza el juego.
 - **`siguienteTurno()`**: Controla el flujo de las acciones de cada jugador por turno.
 - **`verificarGanador()`**: Comprueba si hay un ganador.
