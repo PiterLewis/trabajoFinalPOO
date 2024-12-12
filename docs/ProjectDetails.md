@@ -15,12 +15,11 @@ Este es un proyecto básico de un videojuego **Battle Royale** desarrollado en J
    - Cada jugador puede realizar una acción:
      - **Moverse:** Cambiar a una casilla adyacente (arriba, abajo, izquierda, derecha).
      - **Recoger:** Levantar armas u objetos en la casilla actual.
-     - **Atacar:** Si un jugador está en una casilla adyacente.
-     - **Usar habilidad:** Activar una habilidad especial (si está disponible).
+     - **Atacar:** Si un jugador está en una casilla adyacente.  
+     - **Usar habilidad(curarte(+50 devida))(escudo:Eres inmune al primer ataque)(Colocar trampa a tu lado):** Activar una habilidad especial (si está disponible). Tienes la posibilad de curarte cuando has acbado la batalla
 
 3. **Batallas:**
-   - Si dos jugadores coinciden en la misma casilla, entran en combate.
-   - Los combates son por turnos hasta que uno de los jugadores pierde toda su vida.
+   - Solo pedes atacar si tienes al enemigo justo a la izq,drch,arriba,abajo Si ganas te quedas con la casilla donde se ha atacado
 
 4. **Reducción del tablero:**
    - Al final de cada ronda completa, el tablero se reduce:
@@ -66,9 +65,9 @@ Cada jugador selecciona uno de los siguientes personajes, con estadísticas y ha
 Armas disponibles en el tablero que los jugadores pueden recoger:
 
 1. **Cuchillo:** Daño bajo, siempre disponible.
-2. **Pistola:** Daño moderado, recarga rápida.
-3. **Escopeta:** Daño alto a corta distancia.
-4. **Rifle de francotirador:** Altísimo daño a larga distancia.
+2. **Fusil:** Puede atacar en horizontal, vertical o diagonal
+3. **Escopeta:**. Pude atacar en horizontal o vertical y tiene mas daño que que el fusil. Max disparos 
+4. **Rifle de francotirador:** Altísimo daño a larga distancia. Pudes atacar y luego moverte.
 5. **Cañón de plasma:** Ataque masivo en área (arma rara).
 
 ---
@@ -83,12 +82,12 @@ El tablero inicial es de 8x8 y se reduce gradualmente:
 ---
 
 ### **Organización del Código**
-| Módulo                 | Descripción                              |
-|------------------------|------------------------------------------|
-| `Player`               | Clase base para jugadores.               |
-| `Map`                  | Gestión del tablero y reducción.         |
-| `Weapon`               | Clase para las armas.                    |
-| `Game`                 | Controla el flujo de las rondas.         |
-| `Combat`               | Gestión de los enfrentamientos.          |
+| Clase                 | Descripción                              |
+|------------------------ |------------------------------------------|
+| `Jugador`               | Clase base para jugadores.               |
+| `Mapa`                  | Gestión del tablero y reducción.         |
+| `arma`                  | Clase para las armas.                    |
+| `Game`                  | Controla el flujo de las rondas.         |
+| `Combate`               | Gestión de los enfrentamientos.          |
 
 ---
