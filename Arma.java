@@ -2,24 +2,24 @@ package com.utad.poo.proyectofinaldefinitivo;
 
 public abstract class Arma {
 	protected String tipo;
-    protected Integer daño;
+    protected Integer danio;
 
-    public Arma(String tipo, Integer daño) {
+    public Arma(String tipo, Integer danio) {
         this.tipo = tipo;
-        this.daño = daño;
+        this.danio = danio;
     }
 
     public String getTipo() {
         return tipo;
     }
 
-    public Integer getDaño() {
-        return daño;
+    public Integer getDanio() {
+        return danio;
     }
 
     @Override
     public String toString() {
-        return tipo + " (Daño: " + daño + ")";
+        return tipo + " (Daño: " + danio + ")";
     }
 
 	
