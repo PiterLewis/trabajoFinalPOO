@@ -1,31 +1,11 @@
-package BattleTerminal;
+package com.utad.poo.proyectofinaldefinitivo;
 
-public class Arma {
-    private String nombre;
-    private int daño;
-    private String tipo;  // Por ejemplo: "Cuchillo", "Fusil", etc.
+public abstract class Arma {
+	protected String tipo;
+    protected Integer daño;
 
-    // Constructor
-    public Arma(String nombre, int daño, String tipo) {
-        this.nombre = nombre;
-        this.daño = daño;
+    public Arma(String tipo, Integer daño) {
         this.tipo = tipo;
-    }
-
-    // Getters y setters
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getDaño() {
-        return daño;
-    }
-
-    public void setDaño(int daño) {
         this.daño = daño;
     }
 
@@ -33,7 +13,13 @@ public class Arma {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public Integer getDaño() {
+        return daño;
+    }
+
+    @Override
+    public String toString() {
+        return tipo + " (Daño: " + daño + ")";
     }
 }
+
