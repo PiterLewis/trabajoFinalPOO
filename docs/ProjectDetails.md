@@ -9,7 +9,7 @@ Este es un proyecto básico de un videojuego **Battle Royale** desarrollado en J
 
 ### 1. **Inicio del juego:**
 - Cada jugador selecciona un personaje.
-- El tablero inicial es de 8x8 (puede ajustarse).
+- El tablero inicial es de 12x12 (puede ajustarse).
 - Los jugadores y objetos iniciales se colocan aleatoriamente en el tablero.
 
 ### 2. **Acciones por turno:**
@@ -38,31 +38,35 @@ Cada jugador puede realizar una acción:
 ## **Detalles del Juego**
 
 ### **Jugadores**
-Cada jugador selecciona uno de los siguientes personajes, con estadísticas y habilidades únicas:
+Cada jugador selecciona uno de los siguientes personajes, con estadísticas y habilidades únicas. Además, cada personaje tiene un arma inicial asignada y obtiene un 15% de bonificación al daño si recoge su arma correspondiente en el mapa.
 
 1. **Soldado:**
-   - **Vida:** Alta
-   - **Ataque:** Medio
+   - **Vida:** 150
+   - **Ataque:** 30
    - **Defensa:** Alta
+   - **Arma asignada:** Fusil
    - **Habilidad especial:** Contraataque (devolver parte del daño recibido).
 
 2. **Explorador:**
-   - **Vida:** Media
-   - **Ataque:** Bajo
+   - **Vida:** 100
+   - **Ataque:** 20
    - **Defensa:** Baja
+   - **Arma asignada:** Cuchillo
    - **Habilidad especial:** Movimiento rápido (dos movimientos por ronda).
 
 3. **Médico:**
-   - **Vida:** Media
-   - **Ataque:** Bajo
+   - **Vida:** 120
+   - **Ataque:** 15
    - **Defensa:** Media
+   - **Arma asignada:** Rifle de francotirador
    - **Habilidad especial:** Curación rápida (restaurar vida propia o de un aliado).
 
 4. **Ingeniero:**
-   - **Vida:** Media
-   - **Ataque:** Medio
+   - **Vida:** 110
+   - **Ataque:** 25
    - **Defensa:** Baja
-   - **Habilidad especial:** Trampa explosiva (colocar trampas que dañan a enemigos).
+   - **Arma asignada:** Trampa explosiva
+   - **Habilidad especial:** Colocar trampas que dañan a enemigos.
 
 ---
 
@@ -78,45 +82,51 @@ Armas disponibles en el tablero que los jugadores pueden recoger:
 ---
 
 ### **Mapas**
-El tablero inicial es de 8x8 y se reduce gradualmente:
+El tablero inicial es de 12x12 y se reduce gradualmente:
 
-- **8x8:** Inicio del juego.
-- **6x6:** Después de 2 rondas.
-- **4x4:** Después de 4 rondas.
-- **2x2:** Etapa final.
+- **12x12:** Inicio del juego.
+- **10x10:** Después de 2 rondas.
+- **8x8:** Después de 4 rondas.
+- **6x6:** Después de 6 rondas.
+- **4x4:** Después de 8 rondas.
 
 ---
 
 ### **Organización del Código**
 
-| Clase                 | Descripción                              |
-|------------------------|------------------------------------------|
-| `Jugador`             | Clase base para jugadores.               |
-| `Mapa`                | Gestión del tablero y reducción.         |
-| `Arma`                | Clase para las armas.                    |
-| `Game`                | Controla el flujo de las rondas.         |
-| `Combate`             | Gestión de los enfrentamientos.          |
+| Clase                | Descripción                                |
+|----------------------|--------------------------------------------|
+| `Entidad`            | Clase abstracta base para jugadores y enemigos. |
+| `Jugador`            | Hereda de `Entidad`. Representa un jugador.  |
+| `Arma`               | Clase para las armas.                      |
+| `Mapa`               | Gestión del tablero y reducción.           |
+| `Game`               | Controla el flujo de las rondas.           |
+| `Combate`            | Gestión de los enfrentamientos.            |
 
 ---
 
 ## **Métodos por Clase**
 
-### **Clase `Jugador`**
-- **`mover(int direccion)`**: Permite al jugador moverse en el tablero (arriba, abajo, izquierda, derecha).
-- **`atacar(Jugador enemigo)`**: Realiza un ataque al jugador en una casilla adyacente.
-- **`usarHabilidad()`**: Activa la habilidad especial del jugador.
-- **`recogerArma(Arma arma)`**: Recoge un arma de la casilla actual.
+### **Clase `Entidad` (Abstracta)**
+- **`mover(int direccion)`**: Permite a la entidad moverse en el tablero (arriba, abajo, izquierda, derecha).
+- **`atacar(Entidad objetivo)`**: Realiza un ataque a otra entidad.
+- **`usarHabilidad()`**: Activa la habilidad especial de la entidad.
+- **`recibirDaño(int daño)`**: Reduce la vida de la entidad según el daño recibido.
 
-### **Clase `Mapa`**
-- **`generarTablero(int size)`**: Inicializa el tablero con un tamaño dado.
-- **`colocarJugadores(List<Jugador> jugadores)`**: Ubica jugadores aleatoriamente en el tablero.
-- **`reducirTablero()`**: Reduce el tamaño del tablero eliminando filas y columnas exteriores.
-- **`imprimirMapa()`**: Muestra el estado actual del tablero en la consola.
+### **Clase `Jugador` (Hereda de `Entidad`)**
+- **`recogerArma(Arma arma)`**: Recoge un arma de la casilla actual y aplica bonificación si es su arma asignada.
+- **`usarObjetoEspecial()`**: Ejecuta acciones especiales como curación o trampas.
 
 ### **Clase `Arma`**
 - **`getTipo()`**: Devuelve el tipo de arma.
-- **`getDaño()`**: Devuelve el daño del arma.
+- **`getDaño()`**: Devuelve el daño base del arma.
 - **`usar()`**: Realiza una acción de ataque con el arma.
+
+### **Clase `Mapa`**
+- **`generarTablero(int size)`**: Inicializa el tablero con un tamaño dado.
+- **`colocarJugadores(List<Entidad> entidades)`**: Ubica jugadores y objetos aleatoriamente en el tablero.
+- **`reducirTablero()`**: Reduce el tamaño del tablero eliminando filas y columnas exteriores.
+- **`imprimirMapa()`**: Muestra el estado actual del tablero en la consola.
 
 ### **Clase `Game(Main)`**
 - **`iniciarJuego()`**: Configura y comienza el juego.
@@ -124,8 +134,8 @@ El tablero inicial es de 8x8 y se reduce gradualmente:
 - **`verificarGanador()`**: Comprueba si hay un ganador.
 
 ### **Clase `Combate`**
-- **`iniciarCombate(Jugador jugador1, Jugador jugador2)`**: Maneja la lógica del combate entre dos jugadores.
-- **`calcularDaño(Jugador atacante, Jugador defensor)`**: Aplica el daño calculado de un ataque.
+- **`iniciarCombate(Entidad atacante, Entidad defensor)`**: Maneja la lógica del combate entre dos entidades.
+- **`calcularDaño(Entidad atacante, Entidad defensor)`**: Aplica el daño calculado de un ataque.
 - **`resultadoCombate()`**: Determina el ganador del combate y actualiza las posiciones.
 
 ---
