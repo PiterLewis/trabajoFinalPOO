@@ -1,4 +1,4 @@
-# Battle Royale en Consola (Java)
+# Battle Terminal | Battle Royale en Consola (Java)
 
 ## **Descripción del Proyecto**
 Este es un proyecto básico de un videojuego **Battle Royale** desarrollado en Java y ejecutado desde la terminal. Los jugadores compiten en un tablero dinámico, tomando decisiones estratégicas por turnos. El objetivo es ser el último en pie mientras el área jugable se reduce.
