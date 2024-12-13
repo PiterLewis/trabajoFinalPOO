@@ -1,28 +1,29 @@
+// Clase ArmaFrancotirador
 package com.utad.poo.proyectofinaldefinitivo;
 
 public class ArmaFrancotirador extends Arma {
 
-	    public ArmaFrancotirador(String tipo, Integer danio) {
-	        super(tipo, danio);
-	    }
+    public ArmaFrancotirador() {
+        super("Rifle de Francotirador", 80); // Daño base de 80
+    }
 
-	    // Método corregido
-	    public void atacarYMover(Jugador atacante, Jugador objetivo, Integer dx, Integer dy, Mapa mapa) {
-	        if (objetivo != null) {
-	            Integer danio = getDanio(); // Obtenemos el daño de la arma
+    public void atacarYMover(Jugador atacante, Jugador objetivo, int dx, int dy, Mapa mapa) {
+        if (objetivo != null) {
+            int danio = getDaño();
 
-	            // Si el atacante es un arquero, aumenta el daño en un 20%
-	            if (atacante instanceof JugadorArquero) {
-	                danio += (int) (getDanio() * 0.2); // Incremento del 20% si el atacante es Arquero
-	            }
+            // Incremento del 20% si el atacante es del tipo Explorador (o similar)
+            if (atacante instanceof JugadorArquero) {
+                danio += (int) (danio * 0.2);
+            }
 
-	            // Aplicamos el daño al objetivo
-	            objetivo.setVidaActual(objetivo.getVidaActual() - danio);
-	            System.out.println(atacante.nombre + " ataca a " + objetivo.nombre + " con el Rifle de francotirador causando " + daño + " de daño.");
-	        }
-	        atacante.mover(dx, dy, mapa);  // El atacante se mueve después de atacar
-	        System.out.println(atacante.nombre + " se mueve después del ataque.");
-	    }
-	}
+            // Aplicar el daño al objetivo
+            objetivo.setVidaActual(objetivo.getVidaActual() - danio);
+            System.out.println(atacante.getNombre() + " ataca a " + objetivo.getNombre() +
+                " con el Rifle de Francotirador causando " + danio + " de daño.");
+        }
 
-
+        // Movimiento del atacante
+        atacante.mover(dx, dy, mapa);
+        System.out.println(atacante.getNombre() + " se mueve después del ataque.");
+    }
+}
