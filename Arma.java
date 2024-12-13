@@ -1,10 +1,10 @@
 package com.utad.poo.proyectofinaldefinitivo;
 
 public abstract class Arma {
-	protected String tipo;
+    protected String tipo;
     protected Integer daño;
 
-    public Arma(String tipo, Integer daño) {
+   public Arma(String tipo, Integer daño) {
         this.tipo = tipo;
         this.daño = daño;
     }
@@ -21,5 +21,6 @@ public abstract class Arma {
     public String toString() {
         return tipo + " (Daño: " + daño + ")";
     }
-}
 
+	
+}
