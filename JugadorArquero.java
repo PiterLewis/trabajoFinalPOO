@@ -7,9 +7,9 @@ public  class JugadorArquero extends Jugador {
 	    }
 
 	    @Override
-	    public Integer calcularDaño() {
-	        Integer daniooBase = super.calcularDaño();
-	        return dañoBase; // Se calcula el daño base con cualquier arma
+	    public Integer calcularDanio() {
+	        Integer danioBase = super.calcularDanio();
+	        return danioBase; // Se calcula el daño base con cualquier arma
 	    }
 		
 }

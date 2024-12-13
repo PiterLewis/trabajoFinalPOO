@@ -38,20 +38,20 @@ public abstract class Jugador {
 	            System.out.println(nombre + " no tiene un enemigo adyacente para atacar.");
 	            return;
 	        }
-	        Integer dañoBase = calcularDaño();
-	        Integer daño = Math.max(0, dañoBase);  // El daño no puede ser negativo
-	        enemigo.setVidaActual(enemigo.getVidaActual() - daño); // Restamos vida 
-	        System.out.println(nombre + " ataca a " + enemigo.nombre + " causando " + daño + " de daño.");
+	        Integer danioBase = calcularDanio();
+	        Integer danio = Math.max(0, danioBase);  // El daño no puede ser negativo
+	        enemigo.setVidaActual(enemigo.getVidaActual() - danio); // Restamos vida 
+	        System.out.println(nombre + " ataca a " + enemigo.nombre + " causando " + danio + " de daño.");
 	    }
 
 	    public abstract void usarHabilidad();
 
-	    public Integer calcularDaño() {
-	        Integer dañoBase = ataque;
+	    public Integer calcularDanio() {
+	        Integer danioBase = ataque;
 	        if (armaActual != null) {
-	            dañoBase += armaActual.getDaño();
+	            danioBase += armaActual.getDanio();
 	        }
-	        return dañoBase;
+	        return danioBase;
 	    }
 
 	    public boolean estaVivo() {
