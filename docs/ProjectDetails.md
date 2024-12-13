@@ -47,7 +47,7 @@ Cada jugador selecciona uno de los siguientes personajes, con estadísticas y ha
 
 2. **Explorador:**
    - **Vida:** 100
-   - **Arma boost:** Cuchillo
+   - **Arma boost:** Escopeta
    - **Habilidad especial:** Movimiento rápido (dos movimientos en la siguiente ronda).
 
 3. **Médico:**
@@ -69,7 +69,7 @@ Armas disponibles en el tablero que los jugadores pueden recoger:
 2. **Fusil:** Puede atacar en horizontal, vertical o diagonal.
 3. **Escopeta:** Puede atacar en horizontal o vertical y tiene más daño que el fusil.
 4. **Rifle de francotirador:** Altísimo daño a larga distancia. Permite atacar sin estar en el mismo cuadrante (atacar a cuadrante contiguo) y luego moverse.
-5. **Cañón de plasma:** Ataque masivo en área (arma rara).
+5. **Cañón de plasma:** Ataque masivo en área (casillas contiguas al ataque).
 
 ---
 
