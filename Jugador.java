@@ -1,52 +1,92 @@
-package BattleTerminal;
+package com.utad.poo.proyectofinaldefinitivo;
 
-public class Jugador extends Entidad {
-    protected String nombre;  // Nombre del jugador (opcional)
-    protected Arma arma;      // Arma equipada
+//Clase base Jugador
+public abstract class Jugador {
 
-    // Constructor
-    public Jugador(int vida, int ataque, int defensa, Coordenada posicion, String nombre) {
-        super(vida, ataque, defensa, posicion);
-        this.nombre = nombre;
-        this.arma = null;  // Al principio no tiene arma
-    }
+	    protected String nombre;
+	    protected Integer vidaInicial;
+	    protected Integer vidaActual;
+	    protected Integer ataque;
+	    protected String habilidadEspecial;
+	    protected Arma armaActual;
+	    protected Complemento complementoActual;
 
-    // Implementación de métodos abstractos
-    @Override
-    public void mover(int direccion) {
-        // Lógica de movimiento según la dirección (0: Arriba, 1: Abajo, 2: Izquierda, 3: Derecha)
-        switch (direccion) {
-            case 0: // Arriba
-                this.posicion.setY(this.posicion.getY() - 1);
-                break;
-            case 1: // Abajo
-                this.posicion.setY(this.posicion.getY() + 1);
-                break;
-            case 2: // Izquierda
-                this.posicion.setX(this.posicion.getX() - 1);
-                break;
-            case 3: // Derecha
-                this.posicion.setX(this.posicion.getX() + 1);
-                break;
-        }
-    }
+	    public Jugador(String nombre, Integer ataque, String habilidadEspecial, Integer vidaInicial) {
+	        this.nombre = nombre;
+	        this.vidaInicial = vidaInicial;
+	        this.vidaActual = vidaInicial; // Inicializamos la vida actual con vidaInicial
+	        this.ataque = ataque;
+	        this.habilidadEspecial = habilidadEspecial;
+	    }
 
-    @Override
-    public void usarHabilidad() {
-        // La habilidad del jugador puede implementarse en las subclases
-    }
+	    public void mover(Integer dx, Integer dy, Mapa mapa) {
+	        System.out.println(nombre + " se mueve a una nueva posición.");
+	    }
 
-    // Método para recoger un arma
-    public void recogerArma(Arma arma) {
-        this.arma = arma;
-        this.ataque += arma.getDaño();  // Incrementar el ataque con el arma recogida
-    }
+	    public void recogerArma(Arma arma) {
+	        this.armaActual = arma;
+	        System.out.println(nombre + " ha recogido el arma: " + arma.getTipo());
+	    }
 
-    public String getNombre() {
-        return nombre;
-    }
+	    public void recogerComplemento(Complemento complemento) {
+	        this.complementoActual = complemento;
+	        System.out.println(nombre + " ha recogido el complemento: " + complemento.getTipo());
+	    }
 
-    public Arma getArma() {
-        return arma;
-    }
-}
+	    public void atacar(Jugador enemigo) {
+	        if (enemigo == null) {
+	            System.out.println(nombre + " no tiene un enemigo adyacente para atacar.");
+	            return;
+	        }
+	        Integer dañoBase = calcularDaño();
+	        Integer daño = Math.max(0, dañoBase);  // El daño no puede ser negativo
+	        enemigo.setVidaActual(enemigo.getVidaActual() - daño); // Restamos vida 
+	        System.out.println(nombre + " ataca a " + enemigo.nombre + " causando " + daño + " de daño.");
+	    }
+
+	    public abstract void usarHabilidad();
+
+	    public Integer calcularDaño() {
+	        Integer dañoBase = ataque;
+	        if (armaActual != null) {
+	            dañoBase += armaActual.getDaño();
+	        }
+	        return dañoBase;
+	    }
+
+	    public boolean estaVivo() {
+	        return vidaActual > 0;
+	    }
+	    
+	    public String getNombre() {
+			return nombre;
+		}
+
+		public Integer getVidaInicial() {
+			return vidaInicial;
+		}
+
+		public void setVidaInicial(Integer vidaInicial) {
+			this.vidaInicial = vidaInicial;
+		}
+
+		public Integer getVidaActual() {
+	        return vidaActual;
+	    }
+
+	    public void setVidaActual(Integer vidaActual) {
+	        if (vidaActual > vidaInicial) {
+	            this.vidaActual = vidaInicial;
+	        } else if (vidaActual < 0) {
+	            this.vidaActual = 0; // Aseguramos que la vida no sea negativa
+	        } else {
+	            this.vidaActual = vidaActual;
+	        }
+	    }
+
+	    @Override
+	    public String toString() {
+	        return nombre + " (Vida: " + vidaActual + ", Ataque: " + ataque + ")";
+	    }
+	}
+
