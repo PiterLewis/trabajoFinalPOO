@@ -42,31 +42,23 @@ Cada jugador selecciona uno de los siguientes personajes, con estadísticas y ha
 
 1. **Soldado:**
    - **Vida:** 150
-   - **Ataque:** 30
-   - **Defensa:** Alta
-   - **Arma asignada:** Fusil
-   - **Habilidad especial:** Contraataque (devolver parte del daño recibido).
+   - **Arma boost:** Fusil
+   - **Habilidad especial:** Contraataque (devolver parte (30%) del daño recibido).
 
 2. **Explorador:**
    - **Vida:** 100
-   - **Ataque:** 20
-   - **Defensa:** Baja
-   - **Arma asignada:** Cuchillo
-   - **Habilidad especial:** Movimiento rápido (dos movimientos por ronda).
+   - **Arma boost:** Cuchillo
+   - **Habilidad especial:** Movimiento rápido (dos movimientos en la siguiente ronda).
 
 3. **Médico:**
    - **Vida:** 120
-   - **Ataque:** 15
-   - **Defensa:** Media
-   - **Arma asignada:** Rifle de francotirador
+   - **Arma boost:** Rifle de francotirador
    - **Habilidad especial:** Curación rápida (restaurar vida propia o de un aliado).
 
 4. **Ingeniero:**
    - **Vida:** 110
-   - **Ataque:** 25
-   - **Defensa:** Baja
-   - **Arma asignada:** Trampa explosiva
-   - **Habilidad especial:** Colocar trampas que dañan a enemigos.
+   - **Arma boost:** Cañón de plasma
+   - **Habilidad especial:** Colocar 2 trampas que dañan a enemigos.
 
 ---
 
