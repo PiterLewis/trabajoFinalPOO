@@ -3,13 +3,13 @@ package com.utad.poo.proyectofinaldefinitivo;
 public class ArmaFrancotirador extends Arma {
 
 	    public ArmaFrancotirador(String tipo, Integer danio) {
-	        super(tipo, daño);
+	        super(tipo, danio);
 	    }
 
 	    // Método corregido
 	    public void atacarYMover(Jugador atacante, Jugador objetivo, Integer dx, Integer dy, Mapa mapa) {
 	        if (objetivo != null) {
-	            Integer danio = getDaño(); // Obtenemos el daño de la arma
+	            Integer danio = getDanio(); // Obtenemos el daño de la arma
 
 	            // Si el atacante es un arquero, aumenta el daño en un 20%
 	            if (atacante instanceof JugadorArquero) {
