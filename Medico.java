@@ -1,12 +1,5 @@
-public class Medico extends Jugador {
-    
-    public Medico(String nombre, int vidaMaxima) {
-        super(nombre, vidaMaxima);
+class Medico extends Jugador {
+    public Medico(String nombre, Integer[] posicion) {
+        super(nombre, 120, posicion, "Médico");
     }
-    
-    @Override
-    public void usarHabilidad() {
-        System.out.println("Usando habilidad de Medico");
-    }
-
 }

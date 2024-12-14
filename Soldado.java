@@ -1,4 +1,5 @@
-//Clase jugadorSoldado que hereda de Jugador
-public class Soldado extends Jugador{
-
+class Soldado extends Jugador {
+    public Soldado(String nombre, Integer[] posicion) {
+        super(nombre, 150, posicion, "Soldado");
+    }
 }

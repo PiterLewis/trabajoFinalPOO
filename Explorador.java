@@ -1,12 +1,5 @@
-public class Explorador extends Jugador {
-    
-    public Explorador(String nombre, int vidaMaxima) {
-        super(nombre, vidaMaxima);
+class Explorador extends Jugador {
+    public Explorador(String nombre, Integer[] posicion) {
+        super(nombre, 100, posicion, "Explorador");
     }
-    
-    @Override
-    public void usarHabilidad() {
-        System.out.println("Usando habilidad de Explorador");
-    }
-
 }
