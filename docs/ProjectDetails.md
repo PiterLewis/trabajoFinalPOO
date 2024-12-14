@@ -8,6 +8,9 @@ Este es un proyecto básico de un videojuego **Battle Royale** desarrollado en J
 ## **Cómo jugar**
 
 ### 1. **Inicio del juego:**
+- Aparece un menú por consola que explica de manera de introducción el proyecto.
+- Al pasar al siguiente menú aparece una breve descripción del objetivo del juego, y las funciones de cada personaje y arma.
+- Se pregunta el número de jugadores que van a jugar.
 - Cada jugador selecciona un personaje.
 - El tablero inicial es de 12x12 (puede ajustarse).
 - Los jugadores y objetos iniciales se colocan aleatoriamente en el tablero.
@@ -15,14 +18,15 @@ Este es un proyecto básico de un videojuego **Battle Royale** desarrollado en J
 ### 2. **Acciones por turno:**
 Cada jugador puede realizar una acción:
 - **Moverse:** Cambiar a una casilla adyacente (arriba, abajo, izquierda, derecha).
-- **Recoger:** Levantar armas u objetos en la casilla actual.
+- **Recoger:** Si al moverse a otra casilla hay un arma, abrir un menú donde se pregunte al jugador si desea cambiar el arma.
 - **Atacar:** Si un jugador está en una casilla adyacente.  
 - **Usar habilidad:** Activar una habilidad especial (si está disponible). Opciones:
   - **Curarse (+50 de vida):** Restaurar salud.
-  - **Escudo:** Eres inmune al próximo ataque.
-  - **Colocar trampa:** Dejar una trampa en la casilla adyacente.
+  - **Escudo:** Eres inmune cuando te ataquen la próxima vez.
+  - **Colocar trampa:** Dejar una trampa en tu casilla (-60 de vida).
 
 ### 3. **Batallas:**
+- En cada ronda se le imprime a cada jugador por consola el mapa, sólo verá a los enemigos que estén en una casilla adyacente.
 - Solo puedes atacar si el enemigo está justo a la izquierda, derecha, arriba o abajo.
 - Si ganas, ocupas la casilla del enemigo derrotado.
 
@@ -31,7 +35,7 @@ Cada jugador puede realizar una acción:
   - Las filas y columnas exteriores desaparecen, obligando a los jugadores a moverse al centro.
 
 ### 5. **Finalización del juego:**
-- El juego termina cuando solo queda un jugador o equipo.
+- El juego termina cuando solo queda un jugador.
 
 ---
 
@@ -53,7 +57,7 @@ Cada jugador selecciona uno de los siguientes personajes, con estadísticas y ha
 3. **Médico:**
    - **Vida:** 120
    - **Arma boost:** Rifle de francotirador
-   - **Habilidad especial:** Curación rápida (restaurar vida propia o de un aliado).
+   - **Habilidad especial:** Curación rápida (restaurar vida propia (al 100%)).
 
 4. **Ingeniero:**
    - **Vida:** 110
@@ -68,7 +72,7 @@ Armas disponibles en el tablero que los jugadores pueden recoger:
 1. **Cuchillo:** Daño bajo, siempre disponible.
 2. **Fusil:** Puede atacar en horizontal, vertical o diagonal.
 3. **Escopeta:** Puede atacar en horizontal o vertical y tiene más daño que el fusil.
-4. **Rifle de francotirador:** Altísimo daño a larga distancia. Permite atacar sin estar en el mismo cuadrante (atacar a cuadrante contiguo) y luego moverse.
+4. **Rifle de francotirador:** Altísimo daño a larga distancia. Aumenta en 1 el numero de casillas que visualiza a los enemigos, pero solo puede atacar si está adyacente a su casilla.
 5. **Cañón de plasma:** Ataque masivo en área (casillas contiguas al ataque).
 
 ---
@@ -81,53 +85,5 @@ El tablero inicial es de 12x12 y se reduce gradualmente:
 - **8x8:** Después de 4 rondas.
 - **6x6:** Después de 6 rondas.
 - **4x4:** Después de 8 rondas.
-
----
-
-### **Organización del Código**
-
-| Clase                | Descripción                                |
-|----------------------|--------------------------------------------|
-| `Entidad`            | Clase abstracta base para jugadores y enemigos. |
-| `Jugador`            | Hereda de `Entidad`. Representa un jugador.  |
-| `Arma`               | Clase para las armas.                      |
-| `Mapa`               | Gestión del tablero y reducción.           |
-| `Game`               | Controla el flujo de las rondas.           |
-| `Combate`            | Gestión de los enfrentamientos.            |
-
----
-
-## **Métodos por Clase**
-
-### **Clase `Entidad` (Abstracta)**
-- **`mover(int direccion)`**: Permite a la entidad moverse en el tablero (arriba, abajo, izquierda, derecha).
-- **`atacar(Entidad objetivo)`**: Realiza un ataque a otra entidad.
-- **`usarHabilidad()`**: Activa la habilidad especial de la entidad.
-- **`recibirDaño(int daño)`**: Reduce la vida de la entidad según el daño recibido.
-
-### **Clase `Jugador` (Hereda de `Entidad`)**
-- **`recogerArma(Arma arma)`**: Recoge un arma de la casilla actual y aplica bonificación si es su arma asignada.
-- **`usarObjetoEspecial()`**: Ejecuta acciones especiales como curación o trampas.
-
-### **Clase `Arma`**
-- **`getTipo()`**: Devuelve el tipo de arma.
-- **`getDaño()`**: Devuelve el daño base del arma.
-- **`usar()`**: Realiza una acción de ataque con el arma.
-
-### **Clase `Mapa`**
-- **`generarTablero(int size)`**: Inicializa el tablero con un tamaño dado.
-- **`colocarJugadores(List<Entidad> entidades)`**: Ubica jugadores y objetos aleatoriamente en el tablero.
-- **`reducirTablero()`**: Reduce el tamaño del tablero eliminando filas y columnas exteriores.
-- **`imprimirMapa()`**: Muestra el estado actual del tablero en la consola.
-
-### **Clase `Game(Main)`**
-- **`iniciarJuego()`**: Configura y comienza el juego.
-- **`siguienteTurno()`**: Controla el flujo de las acciones de cada jugador por turno.
-- **`verificarGanador()`**: Comprueba si hay un ganador.
-
-### **Clase `Combate`**
-- **`iniciarCombate(Entidad atacante, Entidad defensor)`**: Maneja la lógica del combate entre dos entidades.
-- **`calcularDaño(Entidad atacante, Entidad defensor)`**: Aplica el daño calculado de un ataque.
-- **`resultadoCombate()`**: Determina el ganador del combate y actualiza las posiciones.
 
 ---
