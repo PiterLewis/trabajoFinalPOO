@@ -1,10 +1,9 @@
-// Clase base para cualquier entidad del juego
 abstract class Entidad {
     protected String nombre;
-    protected Integer vida;
+    protected int vida;
     protected Integer[] posicion; // [x, y]
 
-    public Entidad(String nombre, Integer vida, Integer[] posicion) {
+    public Entidad(String nombre, int vida, Integer[] posicion) {
         this.nombre = nombre;
         this.vida = vida;
         this.posicion = posicion;
@@ -14,11 +13,11 @@ abstract class Entidad {
         this.posicion = nuevaPosicion;
     }
 
-    public void recibirDano(Integer cantidad) {
+    public void recibirDano(int cantidad) {
         this.vida = Math.max(this.vida - cantidad, 0);
     }
 
-    public Boolean estaVivo() {
+    public boolean estaVivo() {
         return this.vida > 0;
     }
 
@@ -26,11 +25,15 @@ abstract class Entidad {
         return nombre;
     }
 
-    public Integer getVida() {
+    public int getVida() {
         return vida;
     }
 
     public Integer[] getPosicion() {
         return posicion;
+    }
+
+    public void setVida(int nuevaVida) {
+        this.vida = nuevaVida;
     }
 }
