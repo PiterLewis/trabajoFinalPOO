@@ -8,7 +8,7 @@ Este es un proyecto básico de un videojuego **Battle Royale** desarrollado en J
 ## **Cómo jugar**
 
 ### 1. **Inicio del juego:**
-- Aparece un menú por consola que explica de manera de introducción el proyecto.
+- Aparece un menú por consola que explica la manera de introducción del proyecto.
 - Al pasar al siguiente menú aparece una breve descripción del objetivo del juego, y las funciones de cada personaje y arma.
 - Se pregunta el número de jugadores que van a jugar.
 - Cada jugador selecciona un personaje.
