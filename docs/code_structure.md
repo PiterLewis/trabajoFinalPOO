@@ -155,5 +155,20 @@ Entidad
     └── Trampa
 
 Tablero
+├── TableroBase  (Clase base lógica del tablero)
+├── TableroConsola  (Para representarlo en consola)
+└── TableroGrafico  (Extiende la funcionalidad para GUI)
+     ├── VentanaPrincipal
+     ├── PanelJuego
+     ├── PanelJugador
+     └── ControlEventos
+
 Partida
+├── LogicaPartida  (Controla las reglas y el flujo del juego)
+└── InterfazPartida  (Se comunica con la GUI para mostrar los cambios)
+
 Helpers
+├── InputHelper
+├── RandomHelper
+└── GUIHelper  (Funciones auxiliares para la interfaz gráfica)
+```
