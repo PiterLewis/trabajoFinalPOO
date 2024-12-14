@@ -139,6 +139,12 @@ Entidad
 │   ├── Médico
 │   └── Ingeniero
 │
+├── HabilidadEspecial
+│   ├── Contraataque
+│   ├── MovimientoRapido
+│   ├── CuracionRapida
+│   └── ColocarTrampas
+│
 └── Objeto
     ├── Arma
     │   ├── Cuchillo
