@@ -1,17 +1,14 @@
+// Curación Rápida
 public class CuracionRapida extends HabilidadEspecial {
-    private Integer curacion;
-    
-    public CuracionRapida(Integer curacion) {
-        this.curacion = curacion;
-    }
-    
-    public Integer getCuracion() {
-        return curacion;
-    }
-    
-    @Override
-    public String toString() {
-        return "CuracionRapida (Curacion: " + curacion + ")";
+
+    public CuracionRapida() {
+        super("Curación Rápida");
     }
 
+    @Override
+    public void activar(Jugador jugador) {
+        int vidaRestaurada = jugador.getVidaMaxima();
+        jugador.setVida(vidaRestaurada);
+        System.out.println(jugador.getNombre() + " se ha curado completamente (" + vidaRestaurada + " HP). ");
+    }
 }

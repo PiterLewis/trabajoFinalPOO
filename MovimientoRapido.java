@@ -1,17 +1,13 @@
+// Movimiento Rápido
 public class MovimientoRapido extends HabilidadEspecial {
-    private Integer velocidad;
-    
-    public MovimientoRapido(Integer velocidad) {
-        this.velocidad = velocidad;
-    }
-    
-    public Integer getVelocidad() {
-        return velocidad;
-    }
-    
-    @Override
-    public String toString() {
-        return "MovimientoRapido (Velocidad: " + velocidad + ")";
+
+    public MovimientoRapido() {
+        super("Movimiento Rápido");
     }
 
+    @Override
+    public void activar(Jugador jugador) {
+        System.out.println(jugador.getNombre() + " puede moverse dos veces en esta ronda.");
+        jugador.setMovimientosExtra(1); // Permitir un movimiento adicional
+    }
 }

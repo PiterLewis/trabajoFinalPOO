@@ -1,25 +1,18 @@
+// Subclase de objeto: Arma
+abstract class Arma extends Objeto {
+    protected Integer dano;
 
-public abstract class Arma extends Objeto{
-	protected String tipo;
-    protected Integer danio;
-
-    public Arma(String tipo, Integer danio) {
-        this.tipo = tipo;
-        this.danio = danio;
+    public Arma(String tipo, Integer[] posicion, Integer dano) {
+        super(tipo, posicion);
+        this.dano = dano;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public Integer getDanio() {
-        return danio;
+    public Integer getDano() {
+        return dano;
     }
 
     @Override
-    public String toString() {
-        return tipo + " (Daño: " + danio + ")";
+    public void usar(Entidad entidad) {
+        System.out.println("Usando " + tipo + " para atacar.");
     }
-
-	
 }

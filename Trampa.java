@@ -1,22 +1,19 @@
-public class Trampa extends Objeto{
-    private String tipo;
-    private Integer danio;
-    
-    public Trampa(String tipo, Integer danio) {
-        this.tipo = tipo;
-        this.danio = danio;
+// Clase Trampa que hereda de Objeto
+public class Trampa extends Objeto {
+    private int dano;
+
+    public Trampa(int dano, int x, int y) {
+        super("Trampa", x, y);
+        this.dano = dano;
     }
-    
-    public String getTipo() {
-        return tipo;
+
+    public int getDano() {
+        return dano;
     }
-    
-    public Integer getDanio() {
-        return danio;
-    }
-    
+
     @Override
-    public String toString() {
-        return tipo + " (Daño: " + danio + ")";
+    public void usar(Jugador jugador) {
+        jugador.recibirDano(dano);
+        System.out.println(jugador.getNombre() + " ha recibido " + dano + " de daño al activar una trampa.");
     }
 }
