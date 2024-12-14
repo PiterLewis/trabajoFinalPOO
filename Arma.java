@@ -1,6 +1,5 @@
-package com.utad.poo.proyectofinaldefinitivo;
 
-public abstract class Arma {
+public abstract class Arma extends Objeto{
 	protected String tipo;
     protected Integer danio;
 

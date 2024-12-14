@@ -1,15 +1,14 @@
 // Clase ArmaCuchillo
-package com.utad.poo.proyectofinaldefinitivo;
 
-public class ArmaCuchillo extends Arma {
+public class Cuchillo extends Arma {
 
-    public ArmaCuchillo() {
+    public Cuchillo() {
         super("Cuchillo", 30); // Daño base de 30
     }
 
     public void atacar(Jugador atacante, Jugador objetivo) {
         if (objetivo != null) {
-            int danio = getDaño();
+            int danio = getDanio();
 
             // Aplicar el daño directamente
             objetivo.setVidaActual(objetivo.getVidaActual() - danio);

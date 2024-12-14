@@ -1,15 +1,14 @@
 // Clase ArmaFrancotirador
-package com.utad.poo.proyectofinaldefinitivo;
 
-public class ArmaFrancotirador extends Arma {
+public class RifleFrancotirador extends Arma {
 
-    public ArmaFrancotirador() {
+    public RifleFrancotirador() {
         super("Rifle de Francotirador", 80); // Daño base de 80
     }
 
     public void atacarYMover(Jugador atacante, Jugador objetivo, int dx, int dy, Mapa mapa) {
         if (objetivo != null) {
-            int danio = getDaño();
+            int danio = getDanio();
 
             // Incremento del 20% si el atacante es del tipo Explorador (o similar)
             if (atacante instanceof JugadorArquero) {

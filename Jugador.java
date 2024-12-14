@@ -1,5 +1,3 @@
-package com.utad.poo.proyectofinaldefinitivo;
-
 //Clase base Jugador
 public abstract class Jugador {
 

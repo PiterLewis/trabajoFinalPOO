@@ -1,15 +1,14 @@
 // Clase ArmaEscopeta
-package com.utad.poo.proyectofinaldefinitivo;
 
-public class ArmaEscopeta extends Arma {
+public class Escopeta extends Arma {
 
-    public ArmaEscopeta() {
+    public Escopeta() {
         super("Escopeta", 60); // Daño base de 60
     }
 
     public void atacar(Jugador atacante, Jugador objetivo) {
         if (objetivo != null) {
-            int danio = getDaño();
+            int danio = getDanio();
 
             // Bonificación si el atacante es un Explorador
             if (atacante instanceof JugadorExplorador) {
