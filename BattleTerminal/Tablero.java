@@ -35,10 +35,10 @@ class Tablero {
             int fila = random.nextInt(dimensiones);
             int columna = random.nextInt(dimensiones);
             Arma arma = switch (random.nextInt(4)) {
-                case 0 -> new Fusil();
-                case 1 -> new Escopeta();
-                case 2 -> new RifleFrancotirador();
-                default -> new CanonPlasma();
+                case 0 : new Fusil();
+                case 1 : new Escopeta();
+                case 2 : new RifleFrancotirador();
+                default : new CanonPlasma();
             };
             arma.posicion = new int[]{fila, columna};
             armas.add(arma);
