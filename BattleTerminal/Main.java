@@ -1,6 +1,5 @@
 package BattleTerminal;
 
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,6 +25,12 @@ public class Main {
         System.out.println("- Rifle de francotirador: Daño muy alto, visión extendida, solo ataca adyacentes.");
         System.out.println("- Cañón de plasma: Ataque masivo en área (casillas contiguas).\n");
         
+        //trata de excepciones
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new Partida();
+            }
+        });
         // Crear una partida
         Partida partida = new Partida();
         partida.iniciarJuego();

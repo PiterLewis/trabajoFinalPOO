@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 
 //Clase para gestionar la partida
-class Partida {
+public class Partida {
  private List<Jugador> jugadores;
  private Tablero tablero;
  private Scanner scanner;
@@ -27,14 +27,23 @@ class Partida {
          System.out.println("1. Soldado\n2. Explorador\n3. Médico\n4. Ingeniero");
          int eleccion = scanner.nextInt();
 
-         Personaje personaje = switch (eleccion) {
-             case 1 -> new Soldado();
-             case 2 -> new Explorador();
-             case 3 -> new Medico();
-             case 4 -> new Ingeniero();
-             default -> throw new IllegalStateException("Selección no válida.");
-         };
-
+         Personaje personaje;
+         switch (eleccion) {
+             case 1: 
+                 personaje = new Soldado();
+                 break;
+             case 2: 
+                 personaje = new Explorador();
+                 break;
+             case 3: 
+                 personaje = new Medico();
+                 break;
+             case 4: 
+                 personaje = new Ingeniero();
+                 break;
+             default: 
+                 throw new IllegalStateException("Selección no válida.");
+         }
          Jugador jugador = new Jugador("Jugador " + i, personaje);
          int[] posicionInicial = {i - 1, i - 1}; // Posición inicial
          jugador.mover(posicionInicial);
@@ -47,12 +56,13 @@ class Partida {
      gestionarTurnos();
  }
 
- private void gestionarTurnos() {
-     boolean juegoActivo = true;
+ public void gestionarTurnos() {
+     while (true) {
+         boolean juegoActivo = true;
 
      while (juegoActivo) {
          System.out.println("\n--- Ronda " + ronda + " ---");
-         jugadores.forEach(jugador -> System.out.println(jugador.getNombre() + " - Vida: " + jugador.vida));
+         jugadores.forEach(jugador -> System.out.println(jugador.getNombre() + " - Vida: " + jugador.getVida());
 
          for (Jugador jugador : jugadores) {
              if (!jugador.estaVivo()) continue;
@@ -80,7 +90,10 @@ class Partida {
      }
 
      System.out.println("\n¡El juego ha terminado!");
- }
+
+     System.out.println("Jugadores restantes:");
+    }
+}
 
  private void moverJugador(Jugador jugador) {
      System.out.println("Introduce la nueva posición (fila columna):");
@@ -120,4 +133,5 @@ class Partida {
      long jugadoresVivos = jugadores.stream().filter(Jugador::estaVivo).count();
      return jugadoresVivos <= 1;
  }
+
 }

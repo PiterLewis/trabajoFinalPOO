@@ -9,8 +9,7 @@ abstract class Objeto {
      this.nombre = nombre;
      this.posicion = posicion;
  }
-
- public String getNombre() {
+ public String getTipo() {
      return nombre;
  }
 }

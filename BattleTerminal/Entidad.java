@@ -2,7 +2,7 @@ package BattleTerminal;
 
 //Clase abstracta base para todas las entidades
 //Clase abstracta base para todas las entidades
-abstract class Entidad {
+public abstract class Entidad {
  protected String nombre;
  protected int vida;
  protected int[] posicion;
