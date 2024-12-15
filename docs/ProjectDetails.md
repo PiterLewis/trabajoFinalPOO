@@ -12,7 +12,7 @@ Este es un proyecto básico de un videojuego **Battle Royale** desarrollado en J
 - Al pasar al siguiente menú aparece una breve descripción del objetivo del juego, y las funciones de cada personaje y arma.
 - Se pregunta el número de jugadores que van a jugar.
 - Cada jugador selecciona un personaje.
-- El tablero inicial es de 12x12 (puede ajustarse).
+- El tablero inicial es de 12x12.
 - Los jugadores y objetos iniciales se colocan aleatoriamente en el tablero.
 
 ### 2. **Acciones por turno:**
@@ -23,16 +23,16 @@ Cada jugador puede realizar una acción:
 - **Usar habilidad:** Activar una habilidad especial (si está disponible). Opciones:
   - **Curarse (+50 de vida):** Restaurar salud.
   - **Escudo:** Eres inmune cuando te ataquen la próxima vez.
-  - **Colocar trampa:** Dejar una trampa en tu casilla (-60 de vida).
+  - **Colocar trampa (-60 de vida):** Dejar una trampa en tu casilla.
 
 ### 3. **Batallas:**
-- En cada ronda se le imprime a cada jugador por consola el mapa, sólo verá a los enemigos que estén en una casilla adyacente.
+- En cada ronda se le imprime a cada jugador por consola el mapa, sólo verá a los enemigos que estén en una casilla adyacente. Se especificará el arma que porta.
 - Solo puedes atacar si el enemigo está justo a la izquierda, derecha, arriba o abajo.
-- Si ganas, ocupas la casilla del enemigo derrotado.
+- Si matas al otro jugador, ocupas la casilla del enemigo derrotado.
 
 ### 4. **Reducción del tablero:**
-- Al final de cada ronda completa, el tablero se reduce:
-  - Las filas y columnas exteriores desaparecen, obligando a los jugadores a moverse al centro.
+- Al final de cada 2 rondas completas, el tablero se reduce.
+- Las filas y columnas exteriores desaparecen. Si un jugador se encuentra en casillas eliminadas, automaticamente ese jugador muere.
 
 ### 5. **Finalización del juego:**
 - El juego termina cuando solo queda un jugador.
@@ -74,6 +74,15 @@ Armas disponibles en el tablero que los jugadores pueden recoger:
 3. **Escopeta:** Puede atacar en horizontal o vertical y tiene más daño que el fusil.
 4. **Rifle de francotirador:** Altísimo daño a larga distancia. Aumenta en 1 el numero de casillas que visualiza a los enemigos, pero solo puede atacar si está adyacente a su casilla.
 5. **Cañón de plasma:** Ataque masivo en área (casillas contiguas al ataque).
+
+---
+
+### **Habilidades especiales**
+Habilidades especiales, aparecen por el mapa, a cada personaje se le activa su habilidad especial correspondiente:
+
+1. **Curarse (+50 de vida):** Suma a la salud +50 puntos, hasta el maximo que será igual a la vida incial de la partida.
+2. **Escudo:** Eres inmune cuando te ataquen la próxima vez.
+3. **Colocar trampa (-60 de vida):** Dejar una trampa en tu casilla, cuando un jugador la pise, le restará 60 de vidas, avisando de quien ha puesto esa trampa.
 
 ---
 

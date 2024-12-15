@@ -167,3 +167,35 @@ Partida
 ├── LogicaPartida  (Controla las reglas y el flujo del juego)
 └── InterfazPartida  (Se comunica con la GUI para mostrar los cambios)
 ```
+
+## **Diagrama Estructura de Archivos**
+```
+src/
+├── entidad/
+│   ├── Jugador.java
+│   ├── Soldado.java
+│   ├── Explorador.java
+│   ├── Médico.java
+│   ├── Ingeniero.java
+│   ├── HabilidadEspecial.java
+│   ├── Contraataque.java
+│   ├── MovimientoRapido.java
+│   ├── CuracionRapida.java
+│   ├── ColocarTrampas.java
+│   ├── Objeto.java
+│   ├── Arma.java
+│   ├── Cuchillo.java
+│   ├── Fusil.java
+│   ├── Escopeta.java
+│   ├── RifleFrancotirador.java
+│   ├── CanonPlasma.java
+│   └── Trampa.java
+├── tablero/
+│   ├── TableroBase.java
+│   ├── TableroConsola.java
+│   └── TableroGrafico.java
+├── partida/
+│   ├── LogicaPartida.java
+│   └── InterfazPartida.java
+└── Main.java
+```
