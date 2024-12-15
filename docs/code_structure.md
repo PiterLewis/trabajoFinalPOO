@@ -168,6 +168,34 @@ Partida
 └── InterfazPartida  (Se comunica con la GUI para mostrar los cambios)
 ```
 
+## **Relaciones entre Clases**
+```
+Jugador <|-- Soldado
+       <|-- Explorador
+       <|-- Médico
+       <|-- Ingeniero
+
+HabilidadEspecial <|-- Contraataque
+                 <|-- MovimientoRapido
+                 <|-- CuracionRapida
+                 <|-- ColocarTrampas
+
+Objeto <|-- Arma
+      <|-- Trampa
+
+Arma <|-- Cuchillo
+     <|-- Fusil
+     <|-- Escopeta
+     <|-- RifleFrancotirador
+     <|-- CanonPlasma
+
+TableroBase <|-- TableroConsola
+            <|-- TableroGrafico
+
+Partida <|-- LogicaPartida
+       <|-- InterfazPartida
+```
+
 ## **Diagrama Estructura de Archivos**
 ```
 src/
