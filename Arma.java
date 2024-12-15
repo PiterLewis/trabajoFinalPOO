@@ -1,5 +1,5 @@
 // Subclase de objeto: Arma
-abstract class Arma extends Objeto {
+public abstract class Arma extends Objeto {
     protected Integer dano;
 
     public Arma(String tipo, Integer[] posicion, Integer dano) {
