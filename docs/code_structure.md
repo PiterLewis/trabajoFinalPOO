@@ -171,17 +171,17 @@ Partida
 ## **Relaciones entre Clases**
 ```
 Jugador <|-- Soldado
-       <|-- Explorador
-       <|-- Médico
-       <|-- Ingeniero
+        <|-- Explorador
+        <|-- Médico
+        <|-- Ingeniero
 
 HabilidadEspecial <|-- Contraataque
-                 <|-- MovimientoRapido
-                 <|-- CuracionRapida
-                 <|-- ColocarTrampas
+                  <|-- MovimientoRapido
+                  <|-- CuracionRapida
+                  <|-- ColocarTrampas
 
 Objeto <|-- Arma
-      <|-- Trampa
+       <|-- Trampa
 
 Arma <|-- Cuchillo
      <|-- Fusil
@@ -193,7 +193,7 @@ TableroBase <|-- TableroConsola
             <|-- TableroGrafico
 
 Partida <|-- LogicaPartida
-       <|-- InterfazPartida
+        <|-- InterfazPartida
 ```
 
 ## **Diagrama Estructura de Archivos**
