@@ -62,10 +62,33 @@ public class Tablero {
     }
 
     public void reducirMapa() {
-        System.out.println("¡El tablero se reduce de tamaño! (Funcionalidad pendiente de implementación)");
+        System.out.println("¡El tablero se reduce de tamaño!");
         // Aquí podrías reducir el tamaño lógico del mapa (no la GUI)
-    }
+        int limiteSuperior = 0;
+        int limiteInferior = filas - 1;
+        int limiteIzquierdo = 0;
+        int limiteDerecho = columnas - 1;
 
+        // Bloquear el borde superior e inferior
+        for (int columna = 0; columna < columnas; columna++) {
+            bloquearCasilla(limiteSuperior, columna); // Bloqueo en el borde superior
+            bloquearCasilla(limiteInferior, columna); // Bloqueo en el borde inferior
+        }
+
+        // Bloquear el borde izquierdo y derecho
+        for (int fila = 0; fila < filas; fila++) {
+            bloquearCasilla(fila, limiteIzquierdo); // Bloqueo en el borde izquierdo
+            bloquearCasilla(fila, limiteDerecho);  // Bloqueo en el borde derecho
+        }
+    }
+    
+    private void bloquearCasilla(int fila, int columna) {
+        // Verifica si la casilla está dentro de los límites del tablero
+        if (posicionValida(new int[]{fila, columna})) {
+            casillas[fila][columna].setBackground(Color.MAGENTA); // Pinta la casilla de morado
+            tablero[fila][columna] = null; // Bloquea la casilla en la lógica
+        }
+    }
     public void imprimirTablero() {
         System.out.println("Actualizando tablero en pantalla...");
         // Esta implementación puede ser simplemente un mensaje,
