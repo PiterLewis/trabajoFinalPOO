@@ -1,4 +1,4 @@
-package BattleTerminal;
+package BattleTerminal2;
 
 public class CanionPlasma extends Arma {
     
