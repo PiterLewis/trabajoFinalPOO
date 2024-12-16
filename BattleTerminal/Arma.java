@@ -1,6 +1,6 @@
 package BattleTerminal;
 
-public class Arma {
+public class Arma implements Modificable{
     private String nombre;
     private String tipo;
     private int dano;
@@ -32,5 +32,22 @@ public class Arma {
     @Override
     public String toString() {
         return nombre + " (" + tipo + "), Daño: " + dano;
+    }
+
+    @Override
+    public Boolean comprobarModificacion(){
+        // si el daño del arma es menor a 90, se puede modificar
+        return this.dano < 90;
+
+    }
+
+    @Override
+    public void modificar() {
+        if (comprobarModificacion()) {
+            this.dano += 10; // Incrementamos el daño como ejemplo
+            System.out.println(nombre + " ha sido mejorada. Daño ahora: " + dano);
+        } else {
+            System.out.println("No se puede modificar el arma " + nombre);
+        }
     }
 }

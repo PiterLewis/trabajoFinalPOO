@@ -158,3 +158,22 @@ Turno de javier
 Tablero después del turno de javier
 --- Ronda 11 ---
 Turno de juan
+--- Ronda 1 ---
+Turno de santi
+Tablero después del turno de santi
+Turno de sergio
+Tablero después del turno de sergio
+Turno de julbez
+--- Ronda 1 ---
+Turno de juan
+Tablero después del turno de juan
+Turno de javier
+--- Ronda 1 ---
+Turno de javier
+Tablero después del turno de javier
+Turno de juan
+Tablero después del turno de juan
+Turno de fernando
+--- Ronda 1 ---
+Turno de santi
+Turno de javier

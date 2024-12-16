@@ -2,8 +2,10 @@ package BattleTerminal;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 public class Tablero extends JFrame {
@@ -76,14 +78,21 @@ public class Tablero extends JFrame {
     }
 
     public void volcarTextoAFichero(String texto, String nombreFichero) {
-        try (FileWriter writer = new FileWriter(nombreFichero, true)) {
-            writer.write(texto + "\n");
-            writer.flush(); // Garantiza que se escribe el contenido
-            System.out.println("Texto volcado al fichero: " + texto); // Mensaje para confirmar
+        File archivo = new File(nombreFichero); // Crear archivo en la ruta especificada
+    
+        try (FileWriter writer = new FileWriter(archivo, true);
+             PrintWriter printWriter = new PrintWriter(writer)) {
+    
+            printWriter.println(texto); // Escribir texto en el archivo
+            System.out.println("Texto volcado al fichero: " + texto);
+    
         } catch (IOException e) {
-            System.err.println("Error al escribir en el fichero: " + e.getMessage());
+            System.err.println("Error al escribir en el fichero: " + archivo.getAbsolutePath());
+            e.printStackTrace();
         }
     }
+    
+
     
 
     public int getBoardSize() {
