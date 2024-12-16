@@ -139,6 +139,17 @@ public class Partida {
      jugador.atacar(enemigo);
  }
 
+ public void actualizarPosicionJugador(Jugador jugador, int[] nuevaPosicion) {
+    int[] posicionAnterior = jugador.getPosicion();
+
+    // Limpia la casilla anterior
+    tablero[posicionAnterior[0]][posicionAnterior[1]] = null;
+
+    // Actualiza el tablero con la nueva posición
+    tablero[nuevaPosicion[0]][nuevaPosicion[1]] = jugador;
+    jugador.mover(nuevaPosicion);
+}
+
  private boolean juegoTerminado() {
      long jugadoresVivos = jugadores.stream().filter(Jugador::estaVivo).count();
      return jugadoresVivos <= 1;
