@@ -1,7 +1,11 @@
 package BattleTerminal;
 
-class Fusil extends Arma {
+public class Fusil extends Arma {
     public Fusil() {
-        super("Fusil", 50);
+        super("Fusil", 40);  // Valores por defecto
+    }
+
+    public Fusil(String nombre, Integer danioBase) {
+        super(nombre, danioBase);
     }
 }

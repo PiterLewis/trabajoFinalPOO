@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 
 //Clase para gestionar la partida
+
 public class Partida {
  private List<Jugador> jugadores;
  private Tablero tablero;
@@ -57,8 +58,7 @@ public class Partida {
  }
 
  public void gestionarTurnos() {
-     while (true) {
-         boolean juegoActivo = true;
+     Boolean juegoActivo = true;
 
      while (juegoActivo) {
          System.out.println("\n--- Ronda " + ronda + " ---");
@@ -93,7 +93,7 @@ public class Partida {
 
      System.out.println("Jugadores restantes:");
     }
-}
+
 
  private void moverJugador(Jugador jugador) {
      System.out.println("Introduce la nueva posición (fila columna):");
@@ -106,7 +106,7 @@ public class Partida {
          return;
      }
 
-     tablero.actualizarPosicionJugador(jugador, nuevaPosicion);
+    tablero.actualizarPosicionJugador(jugador, nuevaPosicion);
  }
 
  private boolean esMovimientoValido(int[] posicionActual, int[] nuevaPosicion) {

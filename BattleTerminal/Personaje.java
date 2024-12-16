@@ -1,7 +1,7 @@
 package BattleTerminal;
 
 //Clase base para personajes
-abstract class Personaje {
+public abstract class Personaje {
  protected String nombre;
  protected int vidaInicial;
  protected Arma armaInicial;

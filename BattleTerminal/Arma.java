@@ -1,7 +1,8 @@
 package BattleTerminal;
 
-abstract class Arma extends Objeto {
+public abstract class Arma extends Objeto {
     protected Integer dano;
+    private String nombre;
 
     public Arma(String nombre, int dano) {
         super(nombre, null);
@@ -10,5 +11,9 @@ abstract class Arma extends Objeto {
 
     public int getDano() {
         return dano;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 }
