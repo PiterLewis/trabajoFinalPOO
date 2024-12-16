@@ -34,11 +34,25 @@ public class Tablero {
     }
 
     public void actualizarPosicionJugador(Jugador jugador, int[] posicion) {
-        int fila = posicion[0];
-        int columna = posicion[1];
-        casillas[fila][columna].setBackground(Color.GREEN);
+    // Obtenemos la posición actual del jugador
+    int[] posicionAnterior = jugador.getPosicion();
 
-        // Pintar la casilla anterior de gris
+    // Limpia la casilla anterior en el tablero
+    if (posicionAnterior != null) { // Asegúrate de que no sea la primera vez que se mueve
+        casillas[posicionAnterior[0]][posicionAnterior[1]].setBackground(null); // Elimina el color de la casilla anterior
+        tablero[posicionAnterior[0]][posicionAnterior[1]] = null; // Limpia la referencia lógica
+    }
+
+    // Actualiza la posición del jugador en el tablero
+    int fila = nuevaPosicion[0];
+    int columna = nuevaPosicion[1];
+    tablero[fila][columna] = jugador;
+
+    // Cambia el color de la nueva casilla para indicar la presencia del jugador
+    casillas[fila][columna].setBackground(Color.GREEN);
+
+    // Actualiza la posición del jugador
+    jugador.mover(nuevaPosicion);
     }
 
     public boolean posicionValida(int[] posicion) {
