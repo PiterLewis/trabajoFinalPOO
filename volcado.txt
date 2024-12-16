@@ -1,0 +1,160 @@
+--- Ronda 1 ---
+Turno de javier
+Tablero después del turno de javier
+Turno de manu
+Tablero después del turno de manu
+--- Ronda 2 ---
+Turno de javier
+Tablero después del turno de javier
+Turno de manu
+Tablero después del turno de manu
+--- Ronda 3 ---
+Turno de javier
+Tablero después del turno de javier
+Turno de manu
+Tablero después del turno de manu
+El tablero se ha reducido.
+--- Ronda 4 ---
+Turno de javier
+Tablero después del turno de javier
+Turno de manu
+Tablero después del turno de manu
+--- Ronda 5 ---
+Turno de javier
+Tablero después del turno de javier
+Turno de manu
+Tablero después del turno de manu
+--- Ronda 6 ---
+Turno de javier
+Tablero después del turno de javier
+Turno de manu
+Tablero después del turno de manu
+El tablero se ha reducido.
+--- Ronda 7 ---
+Turno de javier
+--- Ronda 1 ---
+Turno de santi
+Tablero después del turno de santi
+Turno de 3
+Tablero después del turno de 3
+--- Ronda 2 ---
+Turno de santi
+Tablero después del turno de santi
+Turno de 3
+Tablero después del turno de 3
+--- Ronda 3 ---
+Turno de santi
+Tablero después del turno de santi
+Turno de 3
+Tablero después del turno de 3
+El tablero se ha reducido.
+--- Ronda 4 ---
+Turno de santi
+Tablero después del turno de santi
+Turno de 3
+Tablero después del turno de 3
+--- Ronda 5 ---
+Turno de santi
+Tablero después del turno de santi
+Turno de 3
+Tablero después del turno de 3
+--- Ronda 6 ---
+Turno de santi
+Tablero después del turno de santi
+Turno de 3
+Tablero después del turno de 3
+El tablero se ha reducido.
+--- Ronda 7 ---
+Turno de santi
+Tablero después del turno de santi
+Turno de 3
+Tablero después del turno de 3
+--- Ronda 8 ---
+Turno de santi
+Tablero después del turno de santi
+Turno de 3
+Tablero después del turno de 3
+--- Ronda 9 ---
+Turno de santi
+Tablero después del turno de santi
+Turno de 3
+Tablero después del turno de 3
+El tablero se ha reducido.
+--- Ronda 10 ---
+Turno de santi
+Tablero después del turno de santi
+Turno de 3
+Tablero después del turno de 3
+--- Ronda 11 ---
+Turno de santi
+Tablero después del turno de santi
+Turno de 3
+Tablero después del turno de 3
+--- Ronda 12 ---
+Turno de santi
+Tablero después del turno de santi
+Turno de 3
+--- Ronda 1 ---
+Turno de santi
+Tablero después del turno de santi
+Turno de juan
+Tablero después del turno de juan
+Turno de javi
+Tablero después del turno de javi
+--- Ronda 2 ---
+Turno de santi
+--- Ronda 1 ---
+Turno de juan
+Tablero después del turno de juan
+Turno de javier
+Tablero después del turno de javier
+--- Ronda 2 ---
+Turno de juan
+Tablero después del turno de juan
+Turno de javier
+Tablero después del turno de javier
+--- Ronda 3 ---
+Turno de juan
+Tablero después del turno de juan
+Turno de javier
+Tablero después del turno de javier
+El tablero se ha reducido.
+--- Ronda 4 ---
+Turno de juan
+Tablero después del turno de juan
+Turno de javier
+Tablero después del turno de javier
+--- Ronda 5 ---
+Turno de juan
+Tablero después del turno de juan
+Turno de javier
+Tablero después del turno de javier
+--- Ronda 6 ---
+Turno de juan
+Tablero después del turno de juan
+Turno de javier
+Tablero después del turno de javier
+El tablero se ha reducido.
+--- Ronda 7 ---
+Turno de juan
+Tablero después del turno de juan
+Turno de javier
+Tablero después del turno de javier
+--- Ronda 8 ---
+Turno de juan
+Tablero después del turno de juan
+Turno de javier
+Tablero después del turno de javier
+--- Ronda 9 ---
+Turno de juan
+Tablero después del turno de juan
+Turno de javier
+Tablero después del turno de javier
+El tablero se ha reducido.
+--- Ronda 10 ---
+Turno de juan
+Tablero después del turno de juan
+Turno de javier
+Tablero después del turno de javier
+--- Ronda 11 ---
+Turno de juan

@@ -3,6 +3,8 @@ package BattleTerminal;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class Partida {
     private List<Jugador> jugadores;
     private Tablero tablero;
@@ -67,13 +69,13 @@ public class Partida {
                 if (posicion[0] > 0) posicion[0]--;
                 break;
             case 'S':  // Abajo
-                if (posicion[0] < tablero.getSize() - 1) posicion[0]++;
+                if (posicion[0] < tablero.getBoardSize() - 1) posicion[0]++;
                 break;
             case 'A':  // Izquierda
                 if (posicion[1] > 0) posicion[1]--;
                 break;
             case 'D':  // Derecha
-                if (posicion[1] < tablero.getSize() - 1) posicion[1]++;
+                if (posicion[1] < tablero.getBoardSize() - 1) posicion[1]++;
                 break;
             default:
                 System.out.println("Dirección no válida.");
@@ -108,6 +110,12 @@ public class Partida {
         } else {
             System.out.println("¡Todos los jugadores han caído! No hay ganador.");
         }
+    }
+
+     public void mensajeEmpezar(){
+        // Mensaje OptionPane para empezar partida
+        JOptionPane.showMessageDialog(null, "Bienvenido a BattleTerminal! \n" +
+                "Para empezar la partida, pulsa OK.");
     }
 }
 
