@@ -39,12 +39,6 @@ public class Tablero {
         casillas[fila][columna].setBackground(Color.GREEN);
 
         // Pintar la casilla anterior de gris
-        int[] posicionAnterior = jugador.getPosicionAnterior();
-        if (posicionAnterior != null) {
-            int filaAnterior = posicionAnterior[0];
-            int columnaAnterior = posicionAnterior[1];
-            casillas[filaAnterior][columnaAnterior].setBackground(Color.LIGHT_GRAY);
-        }
     }
 
     public boolean posicionValida(int[] posicion) {

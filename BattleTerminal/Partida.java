@@ -62,7 +62,9 @@ public class Partida {
 
      while (juegoActivo) {
          System.out.println("\n--- Ronda " + ronda + " ---");
-         jugadores.forEach(jugador -> System.out.println(jugador.getNombre() + " - Vida: " + jugador.getVida());
+         for (Jugador jugador : jugadores) {
+             System.out.println(jugador.getNombre() + " - Vida: " + jugador.getVida());
+         }
 
          for (Jugador jugador : jugadores) {
              if (!jugador.estaVivo()) continue;
@@ -72,10 +74,18 @@ public class Partida {
              int accion = scanner.nextInt();
 
              switch (accion) {
-                 case 1 -> moverJugador(jugador);
-                 case 2 -> atacarJugador(jugador);
-                 case 3 -> jugador.usarHabilidadEspecial();
-                 default -> System.out.println("Acción no válida.");
+                 case 1:
+                   moverJugador(jugador);
+                   break;
+                 case 2: 
+                  atacarJugador(jugador);
+                  break;
+                 case 3:
+                  jugador.usarHabilidadEspecial();
+                    break;
+                 default:
+                  System.out.println("Acción no válida.");
+                  break;
              }
 
              tablero.imprimirTablero();
