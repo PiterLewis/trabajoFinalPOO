@@ -109,4 +109,17 @@ public class Tablero {
 
         
     }
+
+    public int getFilas() {
+        return filas;
+    }
+    
+    public int getColumnas() {
+        return columnas;
+    }    
+
+    public boolean posicionOcupada(int fila, int columna) {
+        return tablero[fila][columna] != null;
+    }
+    
 }

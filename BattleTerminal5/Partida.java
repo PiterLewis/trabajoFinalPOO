@@ -3,6 +3,7 @@ package BattleTerminal5;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Random;
 
 
 //Clase para gestionar la partida
@@ -14,48 +15,58 @@ public class Partida {
  private int ronda;
 
  public void iniciarJuego() {
-     jugadores = new ArrayList<>();
-     tablero = new Tablero(12); // Tamaño inicial del tablero
-     scanner = new Scanner(System.in);
-     ronda = 1;
+    jugadores = new ArrayList<>();
+    tablero = new Tablero(12); // Tamaño inicial del tablero
+    scanner = new Scanner(System.in);
+    ronda = 1;
 
-     // Crear jugadores
-     System.out.println("¿Cuántos jugadores participarán? (2-4)");
-     int numeroJugadores = scanner.nextInt();
+    // Crear jugadores
+    System.out.println("¿Cuántos jugadores participarán? (2-4)");
+    int numeroJugadores = scanner.nextInt();
 
-     for (int i = 1; i <= numeroJugadores; i++) {
-         System.out.println("Elige un personaje para el jugador " + i + ":");
-         System.out.println("1. Soldado\n2. Explorador\n3. Médico\n4. Ingeniero");
-         int eleccion = scanner.nextInt();
+    Random random = new Random(); // Generador de números aleatorios
 
-         Personaje personaje;
-         switch (eleccion) {
-             case 1: 
-                 personaje = new Soldado();
-                 break;
-             case 2: 
-                 personaje = new Explorador();
-                 break;
-             case 3: 
-                 personaje = new Medico();
-                 break;
-             case 4: 
-                 personaje = new Ingeniero();
-                 break;
-             default: 
-                 throw new IllegalStateException("Selección no válida.");
-         }
-         Jugador jugador = new Jugador("Jugador " + i, personaje);
-         int[] posicionInicial = {i - 1, i - 1}; // Posición inicial
-         jugador.mover(posicionInicial);
-         jugadores.add(jugador);
-         tablero.actualizarPosicionJugador(jugador, posicionInicial);
-     }
+    for (int i = 1; i <= numeroJugadores; i++) {
+        System.out.println("Elige un personaje para el jugador " + i + ":");
+        System.out.println("1. Soldado\n2. Explorador\n3. Médico\n4. Ingeniero");
+        int eleccion = scanner.nextInt();
 
-     // Inicia la partida
-     System.out.println("\n¡Inicia el juego!\n");
-     gestionarTurnos();
- }
+        Personaje personaje;
+        switch (eleccion) {
+            case 1: 
+                personaje = new Soldado();
+                break;
+            case 2: 
+                personaje = new Explorador();
+                break;
+            case 3: 
+                personaje = new Medico();
+                break;
+            case 4: 
+                personaje = new Ingeniero();
+                break;
+            default: 
+                throw new IllegalStateException("Selección no válida.");
+        }
+        Jugador jugador = new Jugador("Jugador " + i, personaje);
+
+        // Generar una posición inicial aleatoria
+        int fila, columna;
+        do {
+            fila = random.nextInt(tablero.getFilas());
+            columna = random.nextInt(tablero.getColumnas());
+        } while (tablero.posicionOcupada(fila, columna)); // Reintentar si la posición está ocupada
+
+        int[] posicionInicial = {fila, columna};
+        jugador.mover(posicionInicial);
+        jugadores.add(jugador);
+        tablero.actualizarPosicionJugador(jugador, posicionInicial);
+    }
+
+    // Inicia la partida
+    System.out.println("\n¡Inicia el juego!\n");
+    gestionarTurnos();
+}
 
  public void gestionarTurnos() {
      Boolean juegoActivo = true;
