@@ -41,7 +41,6 @@ public class Partida {
         System.out.println("3. Usar habilidad");
 
         int accion = sc.nextInt();
-        sc.nextLine(); // Limpiar el buffer
 
         switch (accion) {
             case 1:

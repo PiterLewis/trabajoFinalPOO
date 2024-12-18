@@ -1,11 +1,9 @@
 package BattleTerminal;
 
-public class Ingeniero {
-    public static int vida() {
-        return 90;  // Vida específica del Ingeniero
-    }
-
-    public static String habilidad() {
-        return "Reparación";
+public class Ingeniero extends Jugador {
+    public Ingeniero(String nombre) {
+        super(nombre, 80, 
+              new Arma("Cañón de Plasma", "Explosivo", 100, "Dispara proyectiles de plasma"), 
+              new Habilidad("Colocar trampas", true));
     }
 }

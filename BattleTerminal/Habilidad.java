@@ -20,13 +20,4 @@ public class Habilidad {
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
-
-    public void usar() {
-        if (disponible) {
-            System.out.println(nombre + " ha sido usada.");
-            disponible = false;  // Habilidad ya no disponible tras usarse
-        } else {
-            System.out.println("La habilidad no está disponible.");
-        }
-    }
 }

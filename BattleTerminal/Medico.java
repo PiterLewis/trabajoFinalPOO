@@ -1,11 +1,9 @@
 package BattleTerminal;
 
-public class Medico {
-    public static int vida() {
-        return 90;  // Vida específica del Médico
-    }
-
-    public static String habilidad() {
-        return "Curación";
+public class Medico extends Jugador {
+    public Medico(String nombre) {
+        super(nombre, 90, 
+              new Arma("Rifle Francotirador", "Francotirador", 90, "Rifle de largo alcance"), 
+              new Habilidad("Curación Rápida", true));
     }
 }

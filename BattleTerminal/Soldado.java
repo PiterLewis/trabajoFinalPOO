@@ -1,11 +1,9 @@
 package BattleTerminal;
 
-public class Soldado {
-    public static int vida() {
-        return 100;  // Vida específica del Soldado
-    }
-
-    public static String habilidad() {
-        return "Disparo de ráfaga";
+public class Soldado extends Jugador {
+    public Soldado(String nombre) {
+        super(nombre, 100, 
+              new Arma("Fusil", "Arma de fuego", 50, "Fusil automático estándar"), 
+              new Habilidad("Disparo preciso", false));
     }
 }
