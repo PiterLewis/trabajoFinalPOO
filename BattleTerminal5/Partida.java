@@ -117,18 +117,74 @@ public class Partida {
 
 
  private void moverJugador(Jugador jugador) {
-     System.out.println("Introduce la nueva posición (fila columna):");
-     int nuevaFila = scanner.nextInt();
-     int nuevaColumna = scanner.nextInt();
-     int[] nuevaPosicion = {nuevaFila, nuevaColumna};
+	 	if (scanner.hasNextLine()) {
+	        scanner.nextLine();
+	    }
+	 
+	    char direccion = ' ';
+	    boolean direccionValida = false;
+	    do {
+	        System.out.println("Selecciona la dirección para moverte (W: Arriba, S: Abajo, A: Izquierda, D: Derecha): ");
+	        String input = scanner.nextLine().trim().toUpperCase(); // Leer línea y eliminar espacios adicionales
 
-     if (!tablero.posicionValida(nuevaPosicion) || !esMovimientoValido(jugador.getPosicion(), nuevaPosicion)) {
-         System.out.println("Movimiento no válido. Solo puedes moverte a casillas contiguas.");
-         return;
-     }
+	        if (input.length() == 1) {
+	            direccion = input.charAt(0);
+	            direccionValida = direccion == 'W' || direccion == 'S' || direccion == 'A' || direccion == 'D';
+	        }
 
-    tablero.actualizarPosicionJugador(jugador, nuevaPosicion);
- }
+	        if (!direccionValida) {
+	            System.out.println("Dirección no válida. Intenta de nuevo.");
+	        }
+	    } while (!direccionValida);
+
+	    int[] posicionActual = jugador.getPosicion();
+	    int nuevaFila = posicionActual[0];
+	    int nuevaColumna = posicionActual[1];
+
+	    // Determinar la nueva posición según la dirección
+	    switch (direccion) {
+	        case 'W': // Arriba
+	            nuevaFila--;
+	            break;
+	        case 'S': // Abajo
+	            nuevaFila++;
+	            break;
+	        case 'A': // Izquierda
+	            nuevaColumna--;
+	            break;
+	        case 'D': // Derecha
+	            nuevaColumna++;
+	            break;
+	    }
+
+	    int[] nuevaPosicion = {nuevaFila, nuevaColumna};
+
+	    // Validar si el movimiento es posible
+	    if (!tablero.posicionValida(nuevaPosicion)) {
+	        System.out.println("Movimiento no válido. Estás intentando salir del tablero.");
+	        return;
+	    }
+
+	    if (!esMovimientoValido(posicionActual, nuevaPosicion)) {
+	        System.out.println("Movimiento no válido. Solo puedes moverte a casillas contiguas.");
+	        return;
+	    }
+
+	    // Actualizar la posición del jugador
+	    tablero.actualizarPosicionJugador(jugador, nuevaPosicion);
+
+	    // Mostrar dirección en texto
+	    String direccionTexto = switch (direccion) {
+	        case 'W' -> "Arriba";
+	        case 'S' -> "Abajo";
+	        case 'A' -> "Izquierda";
+	        case 'D' -> "Derecha";
+	        default -> "";
+	    };
+
+	    System.out.println(jugador.getNombre() + " se ha movido hacia " + direccionTexto + ".");
+	}
+
 
  private boolean esMovimientoValido(int[] posicionActual, int[] nuevaPosicion) {
      int distanciaFila = Math.abs(posicionActual[0] - nuevaPosicion[0]);
