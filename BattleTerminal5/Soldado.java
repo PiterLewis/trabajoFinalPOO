@@ -1,4 +1,4 @@
-package BattleTerminal4;
+package BattleTerminal5;
 
 public class Soldado extends Personaje {
 

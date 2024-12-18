@@ -1,4 +1,4 @@
-package BattleTerminal4;
+package BattleTerminal5;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

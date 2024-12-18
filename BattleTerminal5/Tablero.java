@@ -1,4 +1,4 @@
-package BattleTerminal4;
+package BattleTerminal5;
 
 import javax.swing.*;
 import java.awt.*;

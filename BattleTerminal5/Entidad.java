@@ -1,4 +1,4 @@
-package BattleTerminal4;
+package BattleTerminal5;
 
 public abstract class Entidad {
     protected String nombre;

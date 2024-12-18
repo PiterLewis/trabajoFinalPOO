@@ -1,5 +1,4 @@
-package BattleTerminal4;
-
+package BattleTerminal5;
 public class Medico extends Personaje {
     public Medico() {
         super("Médico", 120, new RifleFrancotirador());

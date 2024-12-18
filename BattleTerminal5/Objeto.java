@@ -1,4 +1,4 @@
-package BattleTerminal4;
+package BattleTerminal5;
 
 //Clase base para objetos
 public abstract class Objeto {
