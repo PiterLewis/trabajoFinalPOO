@@ -8,7 +8,7 @@ public class Tablero {
     private int columnas;
     private JButton[][] casillas;
     private JFrame frame;
-    private Jugador[][] tablero; // Arreglo lógico para jugadores
+    private Jugador[][] tablero; // Array lógico para jugadores
 
     public Tablero(int tamaño) {
         this.filas = tamaño;

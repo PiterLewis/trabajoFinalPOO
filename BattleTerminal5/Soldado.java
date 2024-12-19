@@ -2,7 +2,6 @@ package BattleTerminal5;
 
 public class Soldado extends Personaje {
 
-
     public Soldado() {
         super("Soldado", 150, new Fusil("Fusil de Asalto", 80));
     }

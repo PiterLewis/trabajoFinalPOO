@@ -1,15 +1,19 @@
 package BattleTerminal5;
 
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Random;
 
+
 public class Partida {
     private List<Jugador> jugadores;
     private Tablero tablero;
     private Scanner scanner;
-    private int ronda;
+    private Integer ronda;
+    private String resumenRonda = ""; 
 
     public void iniciarJuego() {
         jugadores = new ArrayList<>();
@@ -19,7 +23,7 @@ public class Partida {
 
         // Crear jugadores
         System.out.println("¿Cuántos jugadores participarán? (2-4)");
-        int numeroJugadores = scanner.nextInt();
+        Integer numeroJugadores = scanner.nextInt();
         scanner.nextLine(); // Limpiar el búfer después de leer el número
 
         Random random = new Random(); // Generador de números aleatorios
@@ -56,7 +60,7 @@ public class Partida {
             Jugador jugador = new Jugador(nombreJugador, personaje);
 
             // Generar una posición inicial aleatoria
-            int fila, columna;
+            Integer fila, columna;
             do {
                 fila = random.nextInt(tablero.getFilas());
                 columna = random.nextInt(tablero.getColumnas());
@@ -76,16 +80,19 @@ public class Partida {
     public void gestionarTurnos() {
         Boolean juegoActivo = true;
 
-        while (juegoActivo) {
+        while (juegoActivo) { 
             System.out.println("\n--- Ronda " + ronda + " ---");
+            resumenRonda += "--- Ronda" + ronda + "---\n";
             for (Jugador jugador : jugadores) {
                 System.out.println(jugador.getNombre() + " - Vida: " + jugador.getVida());
+                resumenRonda += jugador.getNombre() + "- Vida" + jugador.getVida();
             }
 
             for (Jugador jugador : jugadores) {
-                if (!jugador.estaVivo()) continue;
+                
 
                 System.out.println("\nTurno de " + jugador.getNombre() + ":");
+                resumenRonda += "Turno de " + jugador.getNombre() + "\n";
                 System.out.println("1. Mover\n2. Usar habilidad especial");
 
                 // Solo muestra la opción de atacar si hay enemigos cercanos
@@ -118,13 +125,16 @@ public class Partida {
                 switch (accion) {
                     case 1:
                         moverJugador(jugador);
+                        resumenRonda += jugador.getNombre() + " se movió.\n";
                         break;
                     case 2:
                         jugador.usarHabilidadEspecial();
+                        resumenRonda += jugador.getNombre() + " usó su habilidad especial.\n";
                         break;
                     case 3:
                         if (!enemigosCercanos.isEmpty()) {
                             atacarJugador(jugador, enemigosCercanos);
+                            resumenRonda += jugador.getNombre() + " atacó a un enemigo.\n";
                         } else {
                             System.out.println("No hay enemigos cerca para atacar.");
                         }
@@ -141,11 +151,18 @@ public class Partida {
                 }
             }
 
+            if(ronda % 2 == 0){
+                tablero.reducirMapa();
+            }
             ronda++;
-            tablero.reducirMapa();
         }
 
-        mostrarGanador();
+        RegistroOperaciones.registrar(resumenRonda);
+        try {
+            RegistroOperaciones.volcarAFichero("volcado.txt");
+        } catch (IOException e) {
+            System.out.println("Error al volcar el registro de operaciones: " + e.getMessage());
+        }
     }
 
     private void moverJugador(Jugador jugador) {
@@ -202,13 +219,24 @@ public class Partida {
         tablero.actualizarPosicionJugador(jugador, nuevaPosicion);
 
         // Mostrar dirección en texto
-        String direccionTexto = switch (direccion) {
-            case 'W' -> "Arriba";
-            case 'S' -> "Abajo";
-            case 'A' -> "Izquierda";
-            case 'D' -> "Derecha";
-            default -> "";
-        };
+        String direccionTexto;
+        switch (direccion) {
+            case 'W':
+                direccionTexto = "Arriba";
+                break;
+            case 'S':
+                direccionTexto = "Abajo";
+                break;
+            case 'A':
+                direccionTexto = "Izquierda";
+                break;
+            case 'D':
+                direccionTexto = "Derecha";
+                break;
+            default:
+                direccionTexto = "";
+                break;
+        }
 
         System.out.println(jugador.getNombre() + " se ha movido hacia " + direccionTexto + ".");
     }

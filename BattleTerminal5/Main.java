@@ -1,9 +1,24 @@
 package BattleTerminal5;
 
+import java.io.File;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        // Mostrar las instrucciones del juego
+        String nombreFich = "volcado.txt";
+        String directorioActual = System.getProperty("user.dir"); // Obtener el directorio actual
+        File fileToWrite = new File(directorioActual, nombreFich); // Crear el archivo en el directorio actual
+
+        try {
+            if (!fileToWrite.exists()) {
+                fileToWrite.createNewFile(); // Crear el archivo si no existe
+            }
+            System.out.println("El archivo de registro se encuentra en: " + fileToWrite.getCanonicalPath());
+        } catch (IOException e) {
+            System.err.println("Error al crear el archivo de registro: " + e.getMessage());
+            return; // Detener el programa si hay un error al crear el archivo
+        }
+
         System.out.println("¡Bienvenido a Battle Terminal!\n");
         System.out.println("=== Cómo Jugar ===");
         System.out.println("1. Selecciona tu personaje.");
@@ -24,14 +39,7 @@ public class Main {
         System.out.println("- Escopeta: Daño alto, ataque en horizontal o vertical.");
         System.out.println("- Rifle de francotirador: Daño muy alto, visión extendida, solo ataca adyacentes.");
         System.out.println("- Cañón de plasma: Ataque masivo en área (casillas contiguas).\n");
-        
-        // Crear una partida
-        // trata de excepciones para la creación de la partida
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new Partida();
-            }
-        });
+
         // Crear una partida
         Partida partida = new Partida();
         partida.iniciarJuego();

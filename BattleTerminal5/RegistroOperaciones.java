@@ -20,21 +20,20 @@ public class RegistroOperaciones {
     }
 
     public static void volcarAFichero(String rutaFichero) throws IOException {
-        // Crear el archivo en la ubicación indicada
         File archivo = new File(rutaFichero);
-
-        // Verifica si el archivo ya existe o no
+    
         if (!archivo.exists()) {
-            archivo.createNewFile();
+            archivo.createNewFile(); // Crear el archivo si no existe
         }
-
-        
+    
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(archivo))) {
             for (String operacion : operaciones) {
                 bw.write(operacion);
-                bw.newLine();
+                bw.newLine(); // Escribir línea por línea
             }
         }
-
+    
         System.out.println("Las operaciones se han volcado al archivo: " + archivo.getCanonicalPath());
     }
+    
+}

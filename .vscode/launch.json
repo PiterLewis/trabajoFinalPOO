@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "BattleTerminal.Main",
+            "projectName": "trabajoFinalPOO_1a9c402c"
+        },
+        {
+            "type": "java",
+            "name": "Main(1)",
+            "request": "launch",
+            "mainClass": "BattleTerminal2.Main",
+            "projectName": "trabajoFinalPOO_1a9c402c"
+        },
+        {
+            "type": "java",
+            "name": "Main(2)",
+            "request": "launch",
+            "mainClass": "BattleTerminal3.Main",
+            "projectName": "trabajoFinalPOO_1a9c402c"
+        },
+        {
+            "type": "java",
+            "name": "Main(3)",
+            "request": "launch",
+            "mainClass": "BattleTerminal4.Main",
+            "projectName": "trabajoFinalPOO_1a9c402c"
+        },
+        {
+            "type": "java",
+            "name": "Main(4)",
+            "request": "launch",
+            "mainClass": "BattleTerminal5.Main",
+            "projectName": "trabajoFinalPOO_1a9c402c"
+        }
+    ]
+}
