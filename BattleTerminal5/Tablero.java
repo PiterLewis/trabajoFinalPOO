@@ -60,54 +60,58 @@ public class Tablero {
 
     public void reducirMapa() {
         // Verifica si el mapa ya ha alcanzado el tamaño mínimo permitido
-    if (filas <= 4 || columnas <= 4) {
-        System.out.println("El tablero ha alcanzado el tamaño mínimo de 4x4 y no puede reducirse más.");
-        return;
-    }
-    System.out.println("¡El tablero se reduce de tamaño!");
-    // Determinar las filas y columnas a bloquear
-    int margenSuperior = filas - filas;     // Primera fila (0)
-    int margenInferior = filas - 1;         // Última fila
-    int margenIzquierdo = columnas - columnas; // Primera columna (0)
-    int margenDerecho = columnas - 1;       // Última columna
+        if (filas <= 4 || columnas <= 4) {
+            System.out.println("El tablero ha alcanzado el tamaño mínimo de 4x4 y no puede reducirse más.");
+            return;
+        }
 
-    // Bloquear casillas en el margen superior
-    for (int j = 0; j < columnas; j++) {
-        if (tablero[margenSuperior][j] == null) { // Si no hay jugador en la casilla
-            casillas[margenSuperior][j].setBackground(Color.MAGENTA); // Pintar la casilla de morado
-        }
-    }
-    // Bloquear casillas en el margen inferior
-    for (int j = 0; j < columnas; j++) {
-        if (tablero[margenInferior][j] == null) { // Si no hay jugador en la casilla
-            casillas[margenInferior][j].setBackground(Color.MAGENTA);
-        }
-    }
-    // Bloquear casillas en el margen izquierdo
-    for (int i = 0; i < filas; i++) {
-        if (tablero[i][margenIzquierdo] == null) {
-            casillas[i][margenIzquierdo].setBackground(Color.MAGENTA);
-        }
-    }
-    // Bloquear casillas en el margen derecho
-    for (int i = 0; i < filas; i++) {
-        if (tablero[i][margenDerecho] == null) {
-            casillas[i][margenDerecho].setBackground(Color.MAGENTA);
-        }
-    }
-    // Actualizar las dimensiones lógicas del tablero
-    filas -= 1;
-    columnas -= 1;
+        System.out.println("¡El tablero se reduce de tamaño!");
 
-    // Verifica el nuevo tamaño del tablero
-    System.out.println("Nuevo tamaño del tablero: " + filas + "x" + columnas);
+        // Reducir el tablero por todos los lados
+        reducirPorTodosLados();
+
+        // Actualizar las dimensiones lógicas del tablero
+        filas -= 1;
+        columnas -= 1;
+
+        // Verifica el nuevo tamaño del tablero
+        System.out.println("Nuevo tamaño del tablero: " + filas + "x" + columnas);
+    }
+
+    private void reducirPorTodosLados() {
+        // Definir los márgenes a bloquear (para todos los lados)
+        int margenSuperior = 0; // Primera fila
+        int margenInferior = filas - 1; // Última fila
+        int margenIzquierdo = 0; // Primera columna
+        int margenDerecho = columnas - 1; // Última columna
+
+        // Bloquear casillas en los márgenes (superior, inferior, izquierdo y derecho)
+        for (int j = 0; j < columnas; j++) {
+            // Bloqueamos las casillas en los márgenes superior e inferior
+            casillas[margenSuperior][j].setBackground(Color.MAGENTA);  
+            casillas[margenInferior][j].setBackground(Color.MAGENTA);  
+        }
+
+        for (int i = 0; i < filas; i++) {
+            // Bloqueamos las casillas en los márgenes izquierdo y derecho
+            casillas[i][margenIzquierdo].setBackground(Color.MAGENTA);  
+            casillas[i][margenDerecho].setBackground(Color.MAGENTA);  
+        }
+
+        // Marcar las casillas de los márgenes como bloqueadas en el tablero lógico
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                // Bloqueamos las casillas en los márgenes
+                if (i == margenSuperior || i == margenInferior || j == margenIzquierdo || j == margenDerecho) {
+                    tablero[i][j] = null; // Las casillas de los márgenes quedan bloqueadas
+                }
+            }
+        }
     }
 
     public void imprimirTablero() {
         System.out.println("Actualizando tablero en pantalla...");
         // Actualiza visualmente el tablero
-
-        
     }
 
     public int getFilas() {
