@@ -153,6 +153,7 @@ public class Partida {
 
             if(ronda % 2 == 0){
                 tablero.reducirMapa();
+                tablero.modificar();
             }
             ronda++;
         }

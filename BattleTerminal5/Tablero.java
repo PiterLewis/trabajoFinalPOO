@@ -2,8 +2,9 @@ package BattleTerminal5;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Random;
 
-public class Tablero {
+public class Tablero implements Modificable{
     private int filas;
     private int columnas;
     private JButton[][] casillas;
@@ -108,7 +109,32 @@ public class Tablero {
             }
         }
     }
+    @Override
+public void modificar() {
+    Random random = new Random();
+    Integer trampasPorRonda = 2; 
+    Integer trampasColocadas = 0;
+    
 
+    while (trampasColocadas < trampasPorRonda) {
+        // Generar coordenadas aleatorias
+        Integer fila = random.nextInt(filas);
+        Integer columna = random.nextInt(columnas);
+
+        
+        if (casillas[fila][columna].getBackground() != Color.LIGHT_GRAY) {
+            continue;
+        }
+
+        
+        if (trampasColocadas < trampasPorRonda) {
+
+            casillas[fila][columna].setBackground(Color.RED);
+            trampasColocadas++;
+            System.out.println("Trampa colocada en: (" + fila + ", " + columna + ")");
+        }
+    }
+}
     public void imprimirTablero() {
         System.out.println("Actualizando tablero en pantalla...");
         // Actualiza visualmente el tablero
@@ -125,5 +151,6 @@ public class Tablero {
     public boolean posicionOcupada(int fila, int columna) {
         return tablero[fila][columna] != null;
     }
+    
     
 }
