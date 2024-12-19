@@ -1,7 +1,7 @@
 package BattleTerminal5;
 
 //Clase base para personajes
-public abstract class Personaje{
+public abstract class Personaje implements Modificable{
  protected String nombre;
  protected Integer vidaInicial;
  protected Integer vidaActual;
@@ -44,4 +44,11 @@ public abstract class Personaje{
  public String toString() {
 	        return nombre + " (Vida: " + vidaActual + ", Ataque: " + ataque + ")";
 	    }
+	
+	@Override
+	public void modificar() {
+			// Aumentar la vida del personaje en 50 puntos
+			this.vidaActual += 50;
+			System.out.println("La vida del personaje " + nombre + " ha aumentado en 50 puntos. Nueva vida: " + vidaActual);
+		}
 }

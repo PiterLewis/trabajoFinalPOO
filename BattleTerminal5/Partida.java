@@ -155,6 +155,10 @@ public class Partida {
                 tablero.reducirMapa();
                 tablero.modificar();
             }
+
+            if(ronda % 5 == 0){
+                curacionJugadores();
+            }
             ronda++;
         }
 
@@ -323,4 +327,14 @@ public class Partida {
             System.out.println("No hay ganador.");
         }
     }
+
+    public void curacionJugadores() {
+        System.out.println("Los jugadores se curan 50hp");
+        for (Jugador jugador : jugadores) {
+            if (jugador instanceof Modificable) {
+                ((Modificable) jugador).modificar();
+            }
+        }
+    }
+    
 }
